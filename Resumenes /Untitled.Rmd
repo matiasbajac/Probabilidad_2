@@ -1,0 +1,385 @@
+---
+title: "Parte II"
+author: "Matias Bajac"
+date: '2023-04-14'
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+$$\sigma\ algebra$$
+
+$$ Def: \Omega\ conjunto\ , C\ familia\ de\ subconjuntos\ diremos\ que\ \Omega\ es\ una\ sigma\ algebra\ sii$$
+$$propiedades$$
+
+$$(i) A\ \in C\ \implies A^c\ \in C$$
+$$(ii)\ \{A_n\}\ coleccion\ numerable\ "cerrado\ bajo\ uniones\ numerables" \implies \cup_{n=1}^{\infty}\ {A_n}\ \in\ C$$
+
+
+$$ P(\Omega) = {\{subconjuntos\ de\ \Omega\}}$$
+$$ si\ \Omega = \{a,b,c,d\}$$
+$$C = \{\emptyset,{\{a,b}\},{\{c,d}\},{\Omega}\}$$
+
+
+
+
+
+$$ ejemplo\ 3.2$$
+
+
+
+$$ \Omega=\ \Omega^1\  \cup\ \Omega^2\ \cup\, \Omega^n$$
+
+La familia de uniones de de $\Omega^n$ es una $\sigma$ algebra
+
+
+$$C = \{\emptyset,{\Omega^1\ ,\Omega^2, \Omega^n}\}$$
+
+$$Ejemplo\ 3.3$$ 
+
+$$ Consideremos\ un\ conjunto\ \Omega\ arbitrario\,\ consideremos\ un\ \mathcal{A}\ la\ familia\ de\ conjuntos\ A\ \subset\ \Omega\ tales\ que\ el\ elemento\\ A\ es$$
+$$numerable,\  o\  que\ su\ complemento\ es\ numerable.\ Entonces\ \mathcal{A}\ es\ \sigma\ algebra$$
+$$ Si\ A\ \in\ \mathcal{A}\ \implies\ A^c\ \in\ \mathcal{A}$$
+
+$$ si\ tenemos\  A_1\ numerable\ \implies\ A_1^c\ no\ numerable.$$
+$$ Por Axioma\ 2\ \cup_{n=1}^{\infty} \ A_n^c\ \in\ \mathcal{A} = \cap_{n=1}^{\infty}\ A_n^c\ \subseteq\ A_1^c$$
+$$ Entonces\ \mathcal{A}\ es\ \sigma\ algebra$$
+$$ ejemplo\ 3.4$$
+
+$$ Observar\ que\ si\ \mathcal{A_\alpha}\ es\ una\ coleccion\ arbitraria\ de\ \sigma\ algebra\ en\ \Omega\, entonces\ \cap_{\alpha}\mathcal{A_\alpha}\ es\ tambien\ una\ \sigma\ algebra$$
+*Dem*: requiere probar cada uno de los tres axiomas.
+
+
+Axioma 1: por hipótesis, $\mathcal{A}_{\alpha}$ es $\sigma$-álgebra $\forall \alpha \in\Omega \Rightarrow$ por axioma 1, $\Omega \in \mathcal{A}_{\alpha} \Rightarrow$ por definición de intersección, $\Omega \in \bigcap\limits_{\alpha \in I} \mathcal{A}_{\alpha}$.
+
+Axioma 2: si $A \in \bigcap\limits_{\alpha \in I} \mathcal{A}_{\alpha} \Rightarrow$ por definición de intersección, $A \in \mathcal{A}_{\alpha} \forall \alpha \in I$. A su vez, si $A \in \mathcal{A}_{\alpha} \forall \alpha \in I \Rightarrow$ por axioma 2, $A^c \in \mathcal{A}_{\alpha} \forall \alpha \in I \Rightarrow$ por definición de intersección, $A^c \in \bigcap\limits_{\alpha \in I} \mathcal{A}_{\alpha}$.
+
+Axioma 3: si $\{A_n\}_{n \in \mathbb{N}} \in \bigcap\limits_{\alpha \in I} \mathcal{A}_{\alpha} \Rightarrow$ por definición de intersección, $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}_{\alpha} \forall \alpha \in I$. Luego, si $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}_{\alpha} \forall \alpha \in I \Rightarrow$ por definición de unión, $\{A_n\}_{n \in \mathbb{N}} \in \bigcup\limits_{\alpha \in I} \mathcal{A}_{\alpha}$.
+
+
+
+# sigma algebra de borel 
+
+$B\mathcal(R)$ = $\cap_{\alpha}\mathcal{A_{\alpha}}$, $\sigma - algebra$ siendo que\ $I\subset\mathcal{A_{\alpha}}$
+
+siendo que I = {(a,b) : $a,b \in \mathcal(R)$} , a < b}
+
+$$ ejemplo 3.7$$
+
+La $\sigma algebra$ de Borel tambien puede ser obtenida si cambiamos la familia I por la famiuliad e intervalos semi abiertos (a,b] o intervalos cerradas [a,b] o intervalos mas generales tipo $(-\infty,b)$  $(\infty,b]$, variando a y b para todo R con a < b. Basta probar que cada uno de estos nuevos intervalos puede ser formado por elementos de $B\mathcal(R)$
+
+
+Por ejemplo, en el ejercicio anterior, (0,1] = $\cup_{n>1} (0,1+1/n)$  y por lo tanto $(0,1] \in \mathcal{B}{\mathcal(R)}$. Tambien estan los conjuntos de un elemento {2} $\in \mathcal{B}{\mathcal(R)}$
+
+
+por ejemplo, en el ejercicio $(-\infty,1] = \cup_{n>1}\ (-n,1)$
+
+***
+
+**(Ejercicio 2 Parcial 2023)**
+
+Consideremos el espacio de probabilidad
+
+$([0,1],\mathcal{(B},\lambda)$ siendo $\mathcal{B}$ la $\sigma$ algebra de Borel, y $\lambda$ 
+
+la medida de Lebesgue (Recordar que $\lambda([a,b])$= b - a, 
+
+para todo 
+
+ $0 \leq a \leq b \leq 1$
+
+a) Probar que {x} $\in \mathcal{B}$ , para todo x $\in$ [0,1]
+
+
+Tengo que recordar que $\mathcal{B}$  esta generada poor los intervalos en [0,1]
+Dado $x\ \in\ (0,1]$, lo puedo escribir como 
+
+{x} = $\cap{_N}{_\geq}{_n}\ [x\ - 1/n\ ,\ x]\ \cap\ [0,1]$
+
+Y como c/ conjunto 
+
+$\cap{_N}{_\geq}{_n}\ [x\ - 1/n\ ,\ x]\ \cap\ [0,1]$  esta en la
+
+sigma algebra de Borel de [0,1],
+
+tenemos que su interseccion
+
+tambien lo esta. Analogo para el
+
+caso de x = 0 dado que tenemos
+
+{x} =  $\cap{_N}{_\geq}{_n}\ [0,1/n]$
+
+##### seguir con los otros ejercicios del parcial y agregar el del practico ######
+
+
+# Teoria de la Medida 
+
+Un espacio *medible*  es un par $(\Omega,\mathcal{A})$ donde $\Omega$ es un conjunto, y $\mathcal{A}$ es una $\sigma$ algebra de sobconjuntos de $\Omega$ 
+
+Una medida es un espacio medible $(\Omega,\mathcal{A})$ es una funcion $\mu:\ \mathcal{A} \implies\ \mathcal{R}$
+que se cumplas las siguientes propiedades 
+
+(i) $\mu(A)\ \geq  \mu(\emptyset)$, para todo $A \in\ \mathcal{A}$
+
+(ii) $A_{i}$ es una coleccion numerable y disjunta de miembros de $mathcal{A}$, entonces $\mu(\cup_{i}A_i)=\sum_{i}\mu(A_i)$
+
+A la propiedad (ii) se la conoce como propiedad $\sigma$ aditiva 
+
+si $\mu(\Omega) = 1$, decimos que $\mu$  es una medida de probabilidad 
+
+Propiedades (3.8)
+
+1) $A \in \mathcal{A} \implies\ P(A^c)=1-P(A)$
+
+2) Si $A \subseteq B$ son subconjuntos de $\mathcal{A}$, entonces P(B - A)= P(B) - P(A) $\geq$ 0 
+
+3) Sean $A_i$ una coleccion numerable en $\mathcal{A}$, entonces  $P(\cup_{i}A_i)\leq\ \sum_{i}P(A_i)$  a esto se la llama suma aditiva 
+
+4) $A_n$ creciente $A_n \subseteq\ A_{n+1}$
+
+$P(\cup_nA_n) = lim_{n}\ P(A_n)$
+
+
+5) $A_n$ decreciente $(A_n > A_{n+1})$
+
+ $P(\cap_nA_n) = lim_{n}\ P(A_n)$
+ 
+ 
+$$ ejemplo\ 3.9$$
+
+Dar una prueba de la proposicion anterior (3.8). Para la propiedad 3, considerar la sucesion $B_i=A_i - A_{i-1}$ y observar que la coleccion $B_i$ es disjunta y su union coincide con la union de los $A_i$
+
+*Dem*: comenzamos definiendo la siguiente sucesión de conjuntos disjuntos:
+$$B_1 = A_1; \, B_2 = A_2 - A_1; \, B_3 = A_3 - A_2; \ldots; \, B_n = A_n - A_{n-1}; \ldots$$
+
+$B_1 = A_1$
+
+$B_2 = A_2/A_1$
+
+$B_3= A_3/(A_1\cup A_2)$
+
+$B_1 \cup B_2 \cup B_3 = A_1 \cup A_2 \cup A_3$
+
+$P(B_1 \cup B_2 \cup B_3) = P(A_1 \cup A_2 \cup A_3)$  Dado que ${A_n}$ y ${B_n}$ estan definidos en el mismo $[\mathcal(A),\Omega,Pr)]$
+
+$P(A_1) + P(A_2) + P(A_3) \leq \sum_{n} P(A_n)$
+
+***
+
+*otra forma de demostrar lo mismo*
+
+Sean $A,B \in \mathcal{A} \Rightarrow \Pr (A \cup B) = \Pr (A) + \Pr (B) - \Pr (A \cap B)$
+
+*Dem*:
+$$\begin{array}{c c l}
+\left\{ \begin{array}{c c c}
+A & = & (A - B) \cup (A \cap B) \\
+B & = & (B - A) \cup (A \cap B)
+\end{array} \right.
+& & \text{por definición de diferencia} \\ \\
+\left\{ \begin{array}{c c c}
+\Pr (A) & = & \Pr \big( (A - B) \cup (A \cap B) \big) \\
+\Pr (B) & = & \Pr \big( (B - A) \cup (A \cap B) \big)
+\end{array} \right.
+& & \text{tomo probabilidades} \\ \\
+\left\{ \begin{array}{c c c}
+\Pr (A) & = & \Pr (A - B) + P(A \cap B) \\
+\Pr (B) & = & \Pr (B - A) + P(A \cap B)
+\end{array} \right.
+& & \text{por ser sucesos disjuntos} \\ \\
+\Pr (A) + \Pr (B) = \Pr (A-B) + P(B-A) + 2 \Pr (A \cap B) & & \text{sumo de ambos lados} \\ \\
+\Pr (A) + \Pr (B) - \Pr (A \cap B) = \Pr (A - B) + \Pr (B - A) + \Pr (A \cap B) & & \text{reordeno términos} \\ \\
+\Pr (A) + \Pr (B) - \Pr (A \cap B) = \Pr \big((A - B) \cup (B - A) \cup (A \cap B) \big) & & \text{sucesos disjuntos} \\ \\
+\Pr (A) + \Pr (B) - \Pr (A \cap B) = \Pr (A \cup B) & & 
+\end{array}$$
+
+***
+
+6) Si $A_!; \, \ldots; \, A_n \in \mathcal{A} \Rightarrow \Pr \left( \bigcup\limits_{i = 1}^{n} A_i \right) \leq \sum\limits_{i = 1}^{n} \Pr(A_i)$
+
+*Dem*: en la parte 5) de la proposición se demostró que $\Pr (A \cup B) = \Pr (A) + \Pr (B) - \Pr (A\cap B)$. Dado que $\Pr (A\cap B) \geq 0$, esto implica que $\Pr (A \cup B) \leq \Pr (A) + \Pr (B)$.
+
+Siguiendo un procedimiento análogo podemos demostrar, para $n = 3$, que:
+$$\Pr (A \cup B \cup C) = \Pr (A) + \Pr (B) - \Pr (A \cap B) + \Pr (C) - \Pr (A \cap C) - \Pr (B \cap C) + \Pr (A \cap B \cap C) \Rightarrow$$
+$$\Rightarrow \Pr (A \cup B \cup C) = \Pr (A) + \Pr (B) + \Pr (C) - \big[ \Pr (A \cap B) + \Pr (A \cap C) + \Pr (B \cap C) \big] + \Pr (A \cap B \cap C)$$
+donde $\Pr (A_i \cap A_j) \geq \Pr (A_i \cap A_j \cap A_k)$ para cualquier par y terna de conjuntos, dado que del lado izquierdo estamos intersectando más conjuntos, es decir, excluyendo más sucesos. De donde obtenemos que $\Pr (A \cup B \cup C) \leq \Pr (A) + \Pr (B) + \Pr (C)$.
+
+Si continuamos con este proceso hasta llegar a $n$ sucesos, encontramos que:
+$$ \Pr \left( \bigcup\limits_{k = 1}^{n} A_k \right) = \sum\limits_{k = 1}^{n} \Pr (A_k) - \sum\limits_{\substack{i_1, i_2 = 1 \\ i_1 < i_2}}^{n} \Pr (A_{i_1} \cap A_{i_2}) + \sum\limits_{\substack{i_1, i_2. i_3 = 1 \\ i_1 < i_2 < i_3 }}^{n} \Pr (A_{i_1} \cap A_{i_2} \cap A_{i_3}) + $$
+$$ + \ldots + (-1)^{k-1} \sum\limits_{\substack{i_1. \ldots, i_k = 1 \\ i_1 < \ldots < i_k }}^{n} \Pr (A_{i_1} \cap \ldots \cap A_{i_k}) + \ldots + (-1)^{n-1} \Pr (A_{i_1} \cap \ldots \cap A_{i_n}) $$
+donde $\Pr (A_{i_1} \cap A_{i_2}) \geq \Pr (A_{i_1} \cap A_{i_2} \cap A_{i_3}) \geq \Pr (A_{i_1} \cap A_{i_2} \cap A_{i_3} \cap A_{i_4}) \geq \ldots$ para cualquier comparación de $n$-úplas de conjuntos. De donde obtenemos que:
+$$\Pr \left( \bigcup\limits_{i = 1}^{n} A_i \right) \leq \sum\limits_{i = 1}^{n} \Pr (A_i)$$
+
+***
+
+# Variables Aleatorias 
+
+Dado un espacio medible $(\Omega,\mathcal{A})$, UNA *variable aleatoria* es una funcion tal que 
+
+
+ $X : \Omega \rightarrow R$ es una variable aleatoria si para todo $B \in \mathcal{B}(R)$
+ , se cumple que:
+ 
+$$X^{-1}(B) = \{ \omega \in \Omega : X(\omega) \in B \} \in \mathcal{A}$$
+La idea de esta definicion es poder "medir", asignarle un valor numerico a que la variable aleatoria tome ciertos valores numericos ( a saber, valores en un boreliano)
+
+
+
+
+$$Ejemplo\ 3.21$$ 
+El ejemplo mas facil de una V.A son las funciones dummy de conjuntos en  $\sigma\ algebra$ .  $Dado\ A\ \in\ \mathcal{A}$ , se define 
+
+$$
+1\{ A \}(\omega) =
+\begin{cases}
+1, & \text{si } \omega \in A \\
+0, & \text{si } \omega \notin A
+\end{cases}
+$$
+
+
+ $$ \{\emptyset,{\Omega\ ,A, A^c}\}$$ donde A = 1 y A^c es O
+ 
+ 
+se discute si B(R) contiene a O O 1 a ambos a a ninguno 
+
+*Observacion*
+  Una variable aleatoria X en un espacio de probabilidad $(\Omega,\mathcal{A})$ *induce una medida de probabilidad* en $(\mathcal{R},\mathcal{B}(\mathcal{R}))$  denominada *distribucion* de X de la siguiente manera 
+  
+$\mu({B}) = P_x(B) = P(x \in B)$
+
+Pediremos que $X^{-1}(B)$ este en B
+
+donde entendemos por {X $\in$ B} = $X^{-1}(B)$ = $X^{-1}(\mathcal{A}) \in B$
+
+
+$$ Ejemplo \ 3.22$$
+
+Para probar que F_x es una medida en $(\mathcal{R},B(\mathcal{R}))$  debemos probar las *propiedades* de la medida 
+
+1) $F_x(\emptyset)$= O
+
+La funcion de distribucion de F_x esta definida en el conjunto R, no en B(R), por lo que **no** podemos evaluar directamente en el conjunto vacio ${\emptyset}$
+Sin embargo, podemos considerar el caso del limite. 
+
+
+$\lim_{x\implies-\infty}$ F_x= $P(x\leq-\infty)$ =$P(\emptyset)$ = O 
+
+2) Al ser Fx(A) una distribucion, esta comprendida entre O Y 1 
+
+Entonces podemos afirmar que Fx(A)>O para todo $A\in\ (\mathcal{B}(\mathcal{R}))$
+
+3) $Fx(\cup(A_{n}))$ = $\sum_{n}Fx(A_{n})$ para toda coleccion numerable y disjunta de miembros de $\mathcal{A}$
+
+Consdieramos una coleccion numerable en $\mathcal{B}(\mathcal{R})$, {$A_n} para cada A_n, podemos encontrar un conjunto de intervalos disjuntos 
+
+I_n = [A_n,B_n] c A tal que X(I_n) = Fx(b_n) = Fx(a_n)
+
+$Fx(\cup(I_{n}))$ = $\sum_{n}Fx(I_{n})$ = $\sum_{n}\  [Fx(b_{n}) -Fx(a_n)]$
+
+dado que In es un subconjunto de An 
+
+$Fx(\cup(A_{n}))$ = $\sum_{n}Fx(A_{n})$ = $\sum_{n}\  [Fx(b_{n}) -Fx(a_n)]$
+
+Hemos demostrado que la distribucion de una variable aleatoria X cumple con las propiedades de la medida 
+
+***
+
+# Convergencia casi segura y me Probabilidad
+
+ Decimos que {X_n} Converge casi seguramente si 
+
+$P(\Omega_0)$ = 1
+
+$([0,1],\mathcal{B},\lambda)$ , son variables aleatorias porque son continuas 
+
+$f_n(x) = x^{n}$
+
+$$
+lim(fn) =
+\begin{cases}
+1, & \text{si } x = 1  \\
+0, & \text{si } x \in [0,1]
+\end{cases}
+$$
+
+ *Definicion* (CONVERGENCIA CASI SEGURA) : La sucesion de variables X_{1},X_{2},..., convergen casi seguramente a la variable X,si 
+$P(x\in \Omega:Xn(x)= X(x)) = 1$
+
+
+Es decir, la convergencia casi segura se permite para algunos valores de x , la sucesion numerica $X_1(x),X_2(x)$,.. pueda no coverger, sin embargo el subconjunto de $\Omega$ en donde esto suceda debe tener probabildiad O
+
+$P(lim_{n\implies\infty}X_{n}=X=1)$  o simplemente $P(X_{n} \implies \ X)=1$
+
+El limite es unico casi seguramente, es decir $X_{n}$ converge a X c.s y tambien converge a Y c.s, entonces X = Y casi seguramente.
+
+Siguiente el ejemplo, para cada $x \in [O,1])$, la sucesion numerica X_{n}(x) converge a O casi seguro , mientras que para  x = 1 y para cualquier valor de $X_n(x)$  = 1 de esa manera converge punualmente a la v.a 
+
+***
+
+$$ EJEMPLO\ \ 3.44$$
+Si consideramos el espacio [0,1] con la medida de Lebesgue, tenemos que la sucesion $x^n$ ( que son funciones medibles por ser continuas) convergen a la funcion 0 casi seguramente, pero no puntualmente . Ya que ese punto (x=1) es insignificante para la medida de Lebesgue, y por lo tanto hay convergencia C.S pero no puntual 
+
+$$P(|X_n - x |>\epsilon) = P(|X_n|) = P(X_n(x) \in [0,1))$$   entonces podemos decir que $X_n converge c.s ( y en probabilidad ) a 0
+
+
+Para x en (0, 1), cuando n tiende al infinito, x^n tiende a 0, ya que 0 < x < 1. En otras palabras, la sucesión de funciones x^n converge a 0 para todos los puntos x en el intervalo abierto (0, 1).
+
+La sucesión de funciones considerada es x^n, donde n es el índice de la sucesión.
+Queremos demostrar que x^n converge casi seguramente a 0 en el intervalo [0, 1].
+Para x en (0, 1), cuando n tiende al infinito, x^n tiende a 0 porque 0 < x < 1.
+En x = 1, la sucesión x^n siempre toma el valor 1 y no converge a 0.
+Definamos el conjunto A como el conjunto de puntos en [0, 1] donde la sucesión x^n no converge a 0. En este caso, A = {1}.
+Para demostrar que la sucesión converge casi seguramente a 0, necesitamos demostrar que la medida de Lebesgue de A es cero. Recordemos que la medida de Lebesgue generaliza la medida de longitud en el intervalo [0, 1].
+La medida de Lebesgue de un único punto, en este caso x = 1, es cero, ya que un punto no tiene longitud. Entonces, la medida de Lebesgue de A es cero.
+Dado que el conjunto de puntos en [0, 1] donde x^n no converge a 0 tiene medida cero, concluimos que la sucesión x^n converge casi seguramente a la función 0 en el intervalo [0, 1] con respecto a la medida de Lebesgue.
+Esta demostración formaliza la idea de que la sucesión de funciones x^n converge a la función 0 en casi todos los puntos del intervalo [0, 1] con respecto a la medida de Lebesgue, excepto en un conjunto de medida cero (en este caso, solo x = 1).
+
+ ***
+ 
+ $$EJEMPLO\ \ 3.46$$
+ Consideremos el espacio de probabilidad de la medida (probabilidad) uniforme en [0,1], 
+ Dado que estamos trabajando con la medida de probabilidad uniforme en [0, 1], la probabilidad de cualquier subintervalo es igual a su longitud. En este caso, la longitud de cada intervalo In es 1/n. Entonces, la medida de probabilidad de cada evento An, que coincide con el intervalo In, es P(In) = 1/n.
+ 
+ consideremos la sucesion de intervalos definidos como  ́
+
+a continuacion:  ́ I1 = [0,1/2], I2 = [1/2,1], I3 = [0,1/3], I4 = [1/3,2/3], I5 =
+[2/3,1],.... Luego definiendo las variables aleatorias Xn = 1In
+en nuestro
+espacio, es facil ver que tomando   ε ∈ (0,1), se tiene que P{∣Xn∣ ⩾ ε} = λ(In) = 1/n  $\overset{n}{\rightarrow}$
+y por lo tanto  $X_n \overset{p}{\rightarrow} 0$.
+
+
+...**formalizando**...
+
+
+
+$$
+P(x_n=x) =
+\begin{cases}
+1/n, & \text{si } x = 1  \\
+1-1/n, & \text{si } x = 0
+\end{cases}
+$$
+
+**Demostracion de por que no converge casi seguramente**
+
+
+$$\forall \varepsilon > 0 \,\,\,\,\,\, \sum\limits_{n = 1}^{\infty} \Pr (|X_n - 0 | > \varepsilon) = \sum\limits_{n = 1}^{\infty} \Pr (X_n > \varepsilon) = \sum\limits_{n = 1}^{\infty} \Pr ( X_n = 1) = \sum\limits_{n = 1}^{\infty} \frac{1}{n} = + \infty$$
+Convergencia En  probabilidad 
+
+
+$$\forall \varepsilon > 0 \,\,\,\,\,\, \Pr (|X_n - 0 | > \varepsilon) =  \Pr (|X_n| > \varepsilon) = Pr ( X_n >\epsilon) =  1/$$
+
+
+
+ el limite cuando n tiende a infinito es 0
+ 
+ entonces converge en probabilidad a 0 
+
