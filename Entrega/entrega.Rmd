@@ -1,0 +1,102 @@
+---
+title: "Entrega P2"
+author: "Matias Bajac"
+date: '2023-06-12'
+output: pdf_document
+header-incudes:
+-  \usepackage{xcolor}
+- \DeclareMathOperator{\E}{\mathbf{E}}
+geometry: margin=1in
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Ejercicio 3.84
+
+Aplicamos  la **desigualdad de Jensen** , $\phi(\E(X)\leq\E\phi(X))$.
+
+Tenemos que $\phi(x)$ es convexa ya que $\phi''(x)$ > 0
+
+$$\E(\phi(x)) = \E(e^x) = \underbrace{\sum\limits_{m = 1}^{n}p(m)y_m}_{\substack{\text{Por definición}\\\text{de esperanza}}}$$ 
+$$\phi(\E(X)=exp({\sum\limits_{m = 1}^{n}p(m)\log(y_m)})$$ 
+
+$$\underbrace{\exp(\log\prod\limits_{m=1}^{n}y_m^{p(m)})}_{\substack{\text{Por propiedad}\\\text{de logaritmo}}} = {\prod\limits_{m=1}^{n}y_m^{p(m)})}$$
+
+entonces por la desigualdad de Jensen podemos concluir que 
+$$\exp{\E(X)}\leq\E(e^x)$$
+
+# Ejercicio 4.5
+
+##  Si $X_n \overset{L^2}{\rightarrow} X$  entonces $X_n \overset{P}{\rightarrow} X$ 
+ Por hipotesis, si  $X_n \overset{L^2}{\rightarrow} X$  entonces $$\E(X_n-X)^2\overset{n}{\rightarrow} 0$$
+ 
+
+ Para todo $\epsilon>0$
+ 
+$$  \Pr \big( |X_n - X| > \epsilon \big) =  \Pr \big( |X_n - X|^2 > \epsilon^2 \big) \leq \E \left( \frac{ (X_n-X)^2}{\epsilon^2} \right) \overset{n}{\rightarrow} 0$$
+Usando la desigualdad de Chebyshev - Markov, queda probado que 
+ Si $X_n \overset{L^2}{\rightarrow} X$ entonces $X_n \overset{p}{\rightarrow} X$.
+
+- El recíproco no es cierto.
+
+# Ejercicio 5.8 
+
+## $X_n=\frac{1}{2^n}$
+$$\lim\limits_{n\rightarrow+\infty}X_n=0$$
+
+
+
+
+$$F_n(x) = \left\{ 
+\begin{array}{rcl} 
+0 & \text{si} & x <  \frac{1}{2^n} \\ \\
+1  & \text{si} & x \geq \frac{1}{2^n} \\ \\
+\end{array}
+\right. $$
+
+
+$$\lim\limits_{n\rightarrow+\infty}F_n(x) = \left\{ 
+\begin{array}{rcl} 
+0 & \text{si} & x \leq  0 \\ \\
+1  & \text{si} & x > 0 \\ \\
+\end{array}
+\right. $$
+
+$F_n(x)$ no es continua en x=0 , ya que $F_n(0)=0 \neq F(0)=1$, en este punto no hay convergencia 
+
+
+ 
+$$F(x) = \left\{ 
+\begin{array}{rcl} 
+0 & \text{si} & x <  0 \\ \\
+1  & \text{si} & x \geq 0 \\ \\
+\end{array}
+\right. $$
+
+
+en todos los puntos de continuidad , se cumple que $F_n(x) = F(x)$
+
+entonces diremos que en todos los puntos de continuidad,   $X_n \overset{D}{\rightarrow} F(x)$
+
+
+# Ejercicio 3.102
+
+$$\E(X) = \int\limits_0^\infty= td\mu x(t)=$$
+
+$$\int\limits_0^\infty\lambda([0,t])d\mu x(t)=$$
+
+$$\int\limits_0^\infty\big(\int\limits_0^\infty\ I[0,t](s)  \ d\lambda(s)\big)d\mu x(t) =$$
+
+$$\int\limits_0^\infty\big(\int\limits_0^\infty\ I[0,t](s)d\mu x(t)  \ \big)d\lambda(s)=$$
+
+$$\int\limits_0^\infty\Pr(x>s)d\lambda(s)$$
+
+
+
+
+
+
+
